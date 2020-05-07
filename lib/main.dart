@@ -23,8 +23,8 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          ACard(),
-          ACard()
+          ACard("1", "author"),
+          ACard("2", "author2")
         ],
       ),
     );
@@ -32,9 +32,14 @@ class HomePage extends StatelessWidget {
 }
 
 class ACard extends StatelessWidget {
-  const ACard({
-    Key key,
-  }) : super(key: key);
+  final String _text;
+  final String _author;
+
+  const ACard(
+    this._text, 
+    this._author, 
+    { Key key, }
+  ): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +62,7 @@ class ACard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Kritpavin chaiwong Kritpavin chaiwong Kritpavin chaiwongKritpavin chaiwong", 
+              '"$_text"', 
               style: TextStyle(
                 fontSize: 20,
               ),
@@ -67,7 +72,7 @@ class ACard extends StatelessWidget {
             alignment: Alignment(1, 0),
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "KU77 CS32",
+              '$_author',
               style: TextStyle(
                 fontStyle: FontStyle.italic
               ),
